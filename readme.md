@@ -3,7 +3,7 @@
 ## Install
 
 ```
-npm install lets-date
+npm install liev
 ```
 
 ## Licence
