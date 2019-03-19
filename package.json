@@ -1,19 +1,19 @@
 {
-  "name": "lets-date",
+  "name": "liev",
   "version": "1.0.0",
-  "description": "dating app",
+  "description": "Discover your new love with Liev. Write your love letter and connect with someone whose words touched your heart",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon.js"
   },
-  "repository": "qiubee/lets-date",
+  "repository": "qiubee/liev",
   "author": "qiubee (https://github.com/qiubee)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qiubee/lets-date/issues"
+    "url": "https://github.com/qiubee/liev/issues"
   },
-  "homepage": "https://github.com/qiubee/lets-date#readme",
+  "homepage": "https://github.com/qiubee/liev#readme",
   "dependencies": {
     "nodemon": "^1.18.10"
   }
