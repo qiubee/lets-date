@@ -9,12 +9,14 @@
   },
   "repository": "qiubee/liev",
   "author": "qiubee (https://github.com/qiubee)",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/qiubee/liev/issues"
   },
   "homepage": "https://github.com/qiubee/liev#readme",
   "dependencies": {
+  },
+  "devDependencies": {
     "nodemon": "^1.18.10"
   }
 }
