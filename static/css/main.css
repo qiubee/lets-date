@@ -1,0 +1,243 @@
+/* Fonts */
+
+@font-face {
+    font-family: "Amatic";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/ama-rg.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Amatic";
+    font-style: normal;
+    font-weight: 600;
+    src: url("fonts/ama-bd.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: "Stay Writer";
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/stwr-lt.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Stay Writer";
+    font-style: normal;
+    font-weight: 600;
+    src: url("fonts/stwr-bd.otf") format("opentype");
+}
+
+
+@font-face {
+    font-family: "Engine";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/engn-rg.otf") format("opentype");
+}
+
+
+/* Variables */
+
+:root {
+    /* colors */
+    --red: #ED541B;
+    --orange: #F39F0E;
+    --black: #1D182E;
+    --blue: #5245C7;
+    --yelange: #F6BF26;
+    --grey: #D3D3D8;
+}
+
+
+/* General */
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+fieldset {
+    border-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+main form fieldset:first-of-type label:nth-of-type(2) span {
+    position: absolute;
+    top: -99em;
+    left: -99em;
+}
+
+/* ------ */
+
+nav svg {
+    height: 4em;
+    margin: 0.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    margin-right: 1.25em;
+    align-self: center;
+}
+
+nav a {
+    font-family: Engine, Segoe Script, cursive;
+    color: var(--red);
+    font-size: 1.25em;
+    transition: color 0.5s ease;
+}
+
+nav a:hover {
+    color: var(--yelange);
+}
+
+nav li:first-of-type a {
+    margin-right: 1.5em;
+}
+
+main > div {
+    width: 12.5em;
+    margin: 2.5em auto 0 auto;
+    border: solid rgba(47, 46, 49, 0.2) 0.1em;
+    box-shadow: 0 0.75em 0.75em rgba(47, 46, 49, 0.14);
+}
+
+main > div > h1 {
+    font-family: Stay Writer, Segoe Script, cursive;
+    font-weight: 600;
+    font-size: 1.75em;
+    color: var(--orange);
+    width: 5.5em;
+    margin: 1.75em auto 0 auto;
+    text-align: center; 
+}
+
+main div p {
+    font-family: Stay Writer, Segoe Script, cursive;
+    font-weight: 600;
+    font-size: 1.125em;
+    color: var(--red);
+    line-height: 1.5em;
+    text-align: center;
+    width: 8em;
+    margin: 1em auto 2.25em auto;
+}
+
+main a {
+    font-family: Amatic, Segoe Script, cursive;
+    font-weight: 600;
+    font-size: 1.85em;
+    display: flex;
+    text-align: center;
+    width: 2em;
+    color: white;
+    background-color: var(--blue);
+    border-radius: 0.25em;
+    border: solid 0.05em;
+    border-color: #4D40C2;
+    padding: 0.25em 1.7em 0.5em 1.75em;
+    margin: 0 auto;
+    margin-top: 2em;
+    box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.1s ease-out, margin-top 0.1s ease-out;
+}
+
+main a:hover {
+    background-color: var(--yelange);
+    border-color: #F6C231;
+}
+
+main a:active {
+    box-shadow: 0 0 0;
+    margin-top: 2.25em;
+}
+
+
+main form h1 {
+    font-family: Amatic, Segoe Script, cursive;
+    font-weight: 600;
+    font-size: 1.75em;
+    color: var(--yelange);
+    margin: 2em auto 1em auto;
+    text-align: center;
+}
+
+main form {
+    width: 16em;
+    margin: 0 auto;
+}
+
+main form fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+main form label {
+    font-family: Stay Writer, Segoe Script, cursive;
+    font-weight: 400;
+    /font-size: 1.25em;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+main form fieldset:first-of-type > label > input  {
+    font-family: Stay Writer, Arial, cursive;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--blue);
+    min-width: 8em;
+    border: none;
+    border-bottom: solid var(--grey) 0.1em;
+    /border-bottom: solid #5A5A65 0.1em;
+    /box-shadow: 0 0.25em 0.15em rgba(246, 191, 38, 0.25);
+    padding: 0.25em 0.5em 0.25em 0em;
+    margin-top: 1em;
+}
+
+main form fieldset:first-of-type label:nth-of-type(2) {
+    /flex-direction: row;
+}
+
+main form fieldset:first-of-type label:nth-of-type(2) label:nth-of-type(2) {
+    flex-direction: column;
+}
+
+main form fieldset:first-of-type {
+    margin-bottom: 1.5em;
+}
+
+form input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+
