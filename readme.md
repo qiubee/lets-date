@@ -2,7 +2,7 @@
 
 Find love by writing love-letters and write back when you've found the one.
 
-Once you've wrote your first love-letter, all the love-letters that have been written can be opened. Respond by writing a personal private letter, start the correspondence and get to know each other.
+Once you've written your first love-letter, all the love-letters that have been written can be opened. Respond by writing a personal private letter, start the correspondence and get to know each other.
 
 ## Table of Contents
 
