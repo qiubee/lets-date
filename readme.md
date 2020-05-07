@@ -9,7 +9,8 @@ Once you've written your first love-letter, all the love-letters that have been 
 1. [**Features**](#features)
 2. [**Dependencies**](#dependencies)
 3. [**Installation**](#installation)
-4. [**License**](#license)
+4. [**Resources**](#resources)
+5. [**License**](#license)
 
 ## Features
 
@@ -50,6 +51,10 @@ npm run start
 # To run the development environment
 npm run dev
 ```
+
+## Resources
+
+* [Handling Errors in Express](https://gist.github.com/zcaceres/2854ef613751563a3b506fabce4501fd)
 
 ## License
 
