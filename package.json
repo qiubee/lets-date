@@ -2,21 +2,22 @@
   "name": "liev",
   "version": "1.0.0",
   "description": "Discover your new love with Liev. Write your love letter and connect with someone whose words touched your heart",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": "qiubee/liev",
-  "author": "qiubee (https://github.com/qiubee)",
+  "author": "qiubee",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/qiubee/liev/issues"
   },
   "homepage": "https://github.com/qiubee/liev#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
-    "handlebars": "^4.1.1"
+    "express-handlebars": "^4.0.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
