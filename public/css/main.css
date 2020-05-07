@@ -54,21 +54,15 @@
 /* General */
 
 body {
-    margin: 0;
+	margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
 }
 
-ul,
-ol {
+ul, ol {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -90,7 +84,7 @@ main form fieldset:first-of-type label:nth-of-type(2) span {
     left: -99em;
 }
 
-/* ------ */
+/* --- main --- */
 
 nav svg {
     height: 4em;
@@ -123,9 +117,14 @@ nav li:first-of-type a {
     margin-right: 1.5em;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 main > div {
-    width: 12.5em;
-    margin: 2.5em auto 0 auto;
+    width: 17.5em;
+    margin: 2em auto;
     border: solid rgba(47, 46, 49, 0.2) 0.1em;
     box-shadow: 0 0.75em 0.75em rgba(47, 46, 49, 0.14);
 }
@@ -135,8 +134,8 @@ main > div > h1 {
     font-weight: 600;
     font-size: 1.75em;
     color: var(--orange);
-    width: 5.5em;
-    margin: 1.75em auto 0 auto;
+    width: 10em;
+    margin: 1.5em auto 2em auto;
     text-align: center; 
 }
 
@@ -147,27 +146,23 @@ main div p {
     color: var(--red);
     line-height: 1.5em;
     text-align: center;
-    width: 8em;
-    margin: 1em auto 2.25em auto;
+    width: 12.5em;
+    margin: 0 auto 2.5em auto;
 }
 
 main a {
     font-family: Amatic, Segoe Script, cursive;
     font-weight: 600;
     font-size: 1.85em;
-    display: flex;
-    text-align: center;
-    width: 2em;
     color: white;
     background-color: var(--blue);
     border-radius: 0.25em;
     border: solid 0.05em;
     border-color: #4D40C2;
-    padding: 0.25em 1.7em 0.5em 1.75em;
+    padding: 0.5em 1.75em;
     margin: 0 auto;
-    margin-top: 2em;
-    box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.1);
-    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.1s ease-out, margin-top 0.1s ease-out;
+    box-shadow: 0em 0.15em 0.4em rgba(0, 0, 255, 0.25);
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.1s ease-out, transform 0.1s ease-out;
 }
 
 main a:hover {
@@ -177,9 +172,10 @@ main a:hover {
 
 main a:active {
     box-shadow: 0 0 0;
-    margin-top: 2.25em;
+    transform: translateY(0.25em);
 }
 
+/* -- Form -- */
 
 main form h1 {
     font-family: Amatic, Segoe Script, cursive;
@@ -203,7 +199,7 @@ main form fieldset {
 main form label {
     font-family: Stay Writer, Segoe Script, cursive;
     font-weight: 400;
-    /font-size: 1.25em;
+/*     font-size: 1.25em; */
     color: var(--black);
     display: flex;
     flex-direction: column;
@@ -217,14 +213,14 @@ main form fieldset:first-of-type > label > input  {
     min-width: 8em;
     border: none;
     border-bottom: solid var(--grey) 0.1em;
-    /border-bottom: solid #5A5A65 0.1em;
-    /box-shadow: 0 0.25em 0.15em rgba(246, 191, 38, 0.25);
+/*     border-bottom: solid #5A5A65 0.1em; */
+/*     box-shadow: 0 0.25em 0.15em rgba(246, 191, 38, 0.25); */
     padding: 0.25em 0.5em 0.25em 0em;
     margin-top: 1em;
 }
 
 main form fieldset:first-of-type label:nth-of-type(2) {
-    /flex-direction: row;
+/*     flex-direction: row; */
 }
 
 main form fieldset:first-of-type label:nth-of-type(2) label:nth-of-type(2) {
@@ -238,6 +234,3 @@ main form fieldset:first-of-type {
 form input[type="number"] {
     -moz-appearance: textfield;
 }
-
-
-
