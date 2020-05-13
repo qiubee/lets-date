@@ -57,6 +57,11 @@ body {
 	margin: 0;
 }
 
+body[class="dark"] {
+    background-color: var(--black);
+	background-color: #1D182E;
+}
+
 h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 	padding: 0;
@@ -233,4 +238,33 @@ main form fieldset:first-of-type {
 
 form input[type="number"] {
     -moz-appearance: textfield;
+}
+
+/* --- iframe --- */
+
+iframe {
+    display: flex;
+    margin: 5em auto 2.5em auto;
+    width: 30em;
+    height: 30em;
+}
+
+iframe ~ p {
+    text-align: center;
+}
+
+iframe ~ p a {
+    font-family: Helvetica, Arial, Ubuntu, sans-serif;
+    color: white;
+}
+
+iframe ~ p:last-of-type {
+	margin-top: 1em;
+}
+
+a[href$="hellocat.gif"] {
+    color: var(--yelange);
+	text-decoration: underline;
+	margin-top: 1em;
+    font-weight: bold;
 }
