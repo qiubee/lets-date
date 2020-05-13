@@ -55,6 +55,8 @@ npm run dev
 ## Resources
 
 * [Handling Errors in Express](https://gist.github.com/zcaceres/2854ef613751563a3b506fabce4501fd)
+* [Express Guide - Routing](https://expressjs.com/en/guide/routing.html)
+* [Express API Reference - res.download](https://expressjs.com/en/4x/api.html#res.download)
 
 ## License
 
