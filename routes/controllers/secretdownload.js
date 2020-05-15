@@ -1,6 +1,6 @@
 const path = require("path");
 
-function downloadSecret (req, res, next) {
+function downloadSecret (req, res) {
 	const item = res.params.download;
 	console.log(item);
 	if (item === "hellocat.gif") {
