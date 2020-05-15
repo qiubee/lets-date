@@ -240,7 +240,7 @@ form input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* --- iframe --- */
+/* --- gif --- */
 
 img[src$=".gif"] {
     display: flex;
