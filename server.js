@@ -26,6 +26,9 @@ app.use(express.static("public"));
 app.use(router);
 app.use(errorHandler);
 
+// security
+app.disable("x-powered-by");
+
 app.listen(port, function () {
 	console.log(`Listening on port \u001b[1m\u001b[36m${port}\u001b[0m\n\u001b[1m\u001b[32mlocalhost:${port}\u001b[0m`);
 });
