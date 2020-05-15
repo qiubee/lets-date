@@ -1,5 +1,7 @@
 {
+	"esversion": 6,
 	"eqeqeq": true,
 	"curly": true,
-	"esversion": 6
+	"undef": true,
+	"node": true
 }
