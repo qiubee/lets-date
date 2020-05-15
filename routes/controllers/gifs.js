@@ -9,20 +9,20 @@ function cats (req, res) {
 	const item = req.params.item;
 	console.log(item);
 	switch (true) {
-		case /cats?/g.test(item):
-			const pageTitle = "Look, here's a cat";
-			const catGIF = randomCatGIF();
-			const gifID = catGIF.split("-").pop();
-			const catGIFembed = "https://giphy.com/embed/" + gifID;
-			return res.render("cat", {
-				layout: "dark",
-				title: pageTitle,
-				hellocat: gifID === "MWSRkVoNaC30A" ? true : false,
-				gifembed: catGIFembed,
-				gif: catGIF
-			});
-		default:
-			res.redirect("/oops");
+	case /cats?/g.test(item): {
+		const catGIF = randomCatGIF();
+		const gifID = catGIF.split("-").pop();
+		const catGIFembed = "https://giphy.com/embed/" + gifID;
+		return res.render("cat", {
+			layout: "dark",
+			title: "Look, here's a cat",
+			hellocat: gifID === "MWSRkVoNaC30A" ? true : false,
+			gifembed: catGIFembed,
+			gif: catGIF
+		});
+	}
+	default:
+		res.redirect("/oops");
 	}
 }
 
