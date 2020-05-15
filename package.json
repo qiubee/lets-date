@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^7.0.0",
+    "jshint": "^2.11.1",
     "nodemon": "^1.18.10"
   }
 }
