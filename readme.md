@@ -57,6 +57,11 @@ npm run dev
 * [Handling Errors in Express](https://gist.github.com/zcaceres/2854ef613751563a3b506fabce4501fd)
 * [Express Guide - Routing](https://expressjs.com/en/guide/routing.html)
 * [Express API Reference - res.download](https://expressjs.com/en/4x/api.html#res.download)
+* [Send files using Express - Flaviocopes](https://flaviocopes.com/express-send-files/)
+* [Stackoverflow - Content Security Policy](https://stackoverflow.com/questions/28300192/is-it-possible-to-block-remote-scripts-from-loading-inside-iframe)
+* [MDN - Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
+* [CSP: A successful mess between hardening and mitigation - Speakerdeck](https://speakerdeck.com/lweichselbaum/csp-a-successful-mess-between-hardening-and-mitigation?slide=46)
+* [CSP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 
 ## License
 
