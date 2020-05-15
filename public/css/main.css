@@ -242,28 +242,28 @@ form input[type="number"] {
 
 /* --- iframe --- */
 
-iframe {
+img[src$=".gif"] {
     display: flex;
     margin: 5em auto 2.5em auto;
-    width: 30em;
-    height: 30em;
+    max-height: 35em;
 }
 
-iframe ~ p {
+img[src$=".gif"]~ p {
     text-align: center;
 }
 
-iframe ~ p a {
+img[src$=".gif"] ~ p a {
     font-family: Helvetica, Arial, Ubuntu, sans-serif;
     color: white;
 }
 
-iframe ~ p:last-of-type {
+img[src$=".gif"] ~ p:last-of-type {
 	margin-top: 1em;
 }
 
-a[href$="hellocat.gif"] {
+img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
     color: var(--yelange);
+    color: #F6BF26;
 	text-decoration: underline;
 	margin-top: 1em;
     font-weight: bold;
