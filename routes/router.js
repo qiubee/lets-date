@@ -6,9 +6,11 @@ const loginpage = require("./controllers/login");
 const signuppage = require("./controllers/signup");
 const aboutpage = require("./controllers/about");
 const secret = require("./controllers/secret");
-const parameter = require("./controllers/parameter");
+const homepage = require("./controllers/home");
 const realSecret = require("./controllers/gifs");
 const secretDownload = require("./controllers/secretdownload");
+const processLogin = require("./controllers/dataLogin");
+const processSignup = require("./controllers/dataSignup");
 const error = require("./controllers/error");
 
 router.get("/", beginpage)
@@ -16,12 +18,12 @@ router.get("/", beginpage)
 	.get("/signup", signuppage)
 	.get("/about", aboutpage)
 	.get(/.*secret\/?$/, secret)
-	.get("/home/:user", parameter)
+	.get("/home/", homepage)
 	.get("/secret/:item", realSecret)
 	.get("/secret/cats?/:download", secretDownload)
-	.get("/report", function (req, res) {
-		res.json();
-	})
+	.post("/login", processLogin)
+	.post("/signup", processSignup)
 	.get("*", error); // give error on any route that has not been defined
+	
 
 module.exports = router;
