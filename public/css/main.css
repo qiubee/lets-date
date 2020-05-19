@@ -1,42 +1,18 @@
 /* Fonts */
 
 @font-face {
-    font-family: "Amatic";
+    font-family: "L'Engineer";
     font-style: normal;
     font-weight: 400;
-    src: url("fonts/ama-rg.ttf") format("truetype");
+    src: url("../fonts/l'engineer-rg.otf") format("opentype");
 }
 
 @font-face {
-    font-family: "Amatic";
-    font-style: normal;
-    font-weight: 600;
-    src: url("fonts/ama-bd.ttf") format("truetype");
-}
-
-
-@font-face {
-    font-family: "Stay Writer";
-    font-style: normal;
-    font-weight: 300;
-    src: url("fonts/stwr-lt.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Stay Writer";
-    font-style: normal;
-    font-weight: 600;
-    src: url("fonts/stwr-bd.otf") format("opentype");
-}
-
-
-@font-face {
-    font-family: "Engine";
+    font-family: "StayWriter";
     font-style: normal;
     font-weight: 400;
-    src: url("fonts/engn-rg.otf") format("opentype");
+    src: url("../fonts/l'engineer-rg.otf") format("opentype");
 }
-
 
 /* Variables */
 
@@ -45,15 +21,19 @@
     --red: #ED541B;
     --orange: #F39F0E;
     --black: #1D182E;
-    --blue: #5245C7;
+	--blue: #5245C7;
+	--green: #77DD77;
     --yelange: #F6BF26;
-    --grey: #D3D3D8;
+	--grey: #D3D3D8;
+	
+	/* fonts */
+	--main-font: "L'Engineer", Segoe Script, Ubuntu, Times, Times New Roman, cursive;
 }
 
 
 /* General */
-
-body {
+html, body {
+    height: 100%;
 	margin: 0;
 }
 
@@ -77,23 +57,19 @@ a {
     text-decoration: none;
 }
 
-fieldset {
-    border-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-main form fieldset:first-of-type label:nth-of-type(2) span {
-    position: absolute;
-    top: -99em;
-    left: -99em;
+a:hover {
+    cursor: pointer;
 }
 
 /* --- main --- */
 
+header {
+    margin-bottom: 1em;
+}
+
 nav svg {
-    height: 4em;
-    margin: 0.5em;
+    height: 5em;
+    margin: 0.5em 0 0 0.5em;
 }
 
 nav {
@@ -105,13 +81,15 @@ ul {
     display: flex;
     margin-right: 1.25em;
     align-self: center;
+    margin-top: 0.4em;
 }
 
 nav a {
-    font-family: Engine, Segoe Script, cursive;
+    font-family: var(--main-font);
     color: var(--red);
-    font-size: 1.25em;
+    font-size: 1.5em;
     transition: color 0.5s ease;
+    text-transform: capitalize;
 }
 
 nav a:hover {
@@ -127,15 +105,23 @@ main {
     flex-direction: column;
 }
 
+main.center {
+	height: 80%;
+	align-items: center;
+	justify-content: center;
+    margin: 0 auto;
+}
+
 main > div {
-    width: 17.5em;
-    margin: 2em auto;
+    min-width: 17.5em;
+    min-height: 20em;
+    margin: 0 auto 2em auto;
     border: solid rgba(47, 46, 49, 0.2) 0.1em;
     box-shadow: 0 0.75em 0.75em rgba(47, 46, 49, 0.14);
 }
 
 main > div > h1 {
-    font-family: Stay Writer, Segoe Script, cursive;
+    font-family: var(--main-font);
     font-weight: 600;
     font-size: 1.75em;
     color: var(--orange);
@@ -145,7 +131,7 @@ main > div > h1 {
 }
 
 main div p {
-    font-family: Stay Writer, Segoe Script, cursive;
+    font-family: var(--main-font);
     font-weight: 600;
     font-size: 1.125em;
     color: var(--red);
@@ -155,10 +141,11 @@ main div p {
     margin: 0 auto 2.5em auto;
 }
 
-main a {
-    font-family: Amatic, Segoe Script, cursive;
+main a[href="login"], form input[type="submit"]  {
+    font-family: var(--main-font);
     font-weight: 600;
     font-size: 1.85em;
+    text-transform: uppercase;
     color: white;
     background-color: var(--blue);
     border-radius: 0.25em;
@@ -170,12 +157,12 @@ main a {
     transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.1s ease-out, transform 0.1s ease-out;
 }
 
-main a:hover {
+main a:hover, form input[type="submit"]:hover {
     background-color: var(--yelange);
     border-color: #F6C231;
 }
 
-main a:active {
+main a:active, form input[type="submit"]:active {
     box-shadow: 0 0 0;
     transform: translateY(0.25em);
 }
@@ -183,61 +170,96 @@ main a:active {
 /* -- Form -- */
 
 main form h1 {
-    font-family: Amatic, Segoe Script, cursive;
     font-weight: 600;
     font-size: 1.75em;
-    color: var(--yelange);
-    margin: 2em auto 1em auto;
+    color: var(--orange);
+    margin-bottom: 1em;
     text-align: center;
 }
 
 main form {
-    width: 16em;
-    margin: 0 auto;
+    display: flex;
+	flex-direction: column;
+	font-family: "L'Engineer", Ubuntu, Segoe Script, Times, Times New Roman, cursive;
+    font-family: var(--main-font);
+    align-items: center;
+    margin: 7.5em auto;
 }
 
-main form fieldset {
-    display: flex;
-    flex-direction: column;
+form[action$="signup"] {
+	margin: 0.5em auto;
 }
 
 main form label {
-    font-family: Stay Writer, Segoe Script, cursive;
     font-weight: 400;
-/*     font-size: 1.25em; */
+    font-size: 1.25em;
+	max-width: 12em;
+	color: black;
     color: var(--black);
     display: flex;
     flex-direction: column;
 }
 
-main form fieldset:first-of-type > label > input  {
-    font-family: Stay Writer, Arial, cursive;
+main form label input  {
+    font-family: var(--main-font);
     font-weight: 600;
     font-size: 1.1em;
     color: var(--blue);
-    min-width: 8em;
-    border: none;
+	border: none;
+	border-bottom: solid #D3D3D8 0.1em;
     border-bottom: solid var(--grey) 0.1em;
-/*     border-bottom: solid #5A5A65 0.1em; */
-/*     box-shadow: 0 0.25em 0.15em rgba(246, 191, 38, 0.25); */
-    padding: 0.25em 0.5em 0.25em 0em;
-    margin-top: 1em;
+    box-shadow: 0 0.5em 0.75em rgba(204, 203, 201, 0.35);
+    padding: 0.25em 0.5em 0.25em 0.25em;
+	margin: 0.25em 0 1.5em 0;
+	transition: border-bottom ease-in 0.35s, box-shadow ease-in 0.35s ;
 }
 
-main form fieldset:first-of-type label:nth-of-type(2) {
-/*     flex-direction: row; */
+main form label input::placeholder {
+	color: #D3D3D8;
+	color: var(--grey);
 }
 
-main form fieldset:first-of-type label:nth-of-type(2) label:nth-of-type(2) {
-    flex-direction: column;
+main form label input:valid:not(:placeholder-shown):not([name="name"]) {
+	border-bottom: solid #77dd77 0.1em;
+	border-bottom: solid var(--green) 0.1em;
+	box-shadow: 0 0.5em 0.75em rgba(27, 250, 75, 0.35);
 }
 
-main form fieldset:first-of-type {
-    margin-bottom: 1.5em;
+main form label input:invalid {
+	border-bottom: solid #ED541B 0.1em;
+	border-bottom: solid var(--red) 0.1em;
+	box-shadow: 0 0.5em 0.75em rgba(240, 99, 44, 0.35);
+}
+
+main form label input:required {
+	border-bottom: solid #F6BF26 0.1em;
+	border-bottom: solid var(--yelange) 0.1em;
+	box-shadow: 0 0.5em 0.75em rgba(234, 238, 22, 0.479)
+}
+
+main form label input:focus  {
+	border-bottom: solid #5245C7 0.1em;
+	border-bottom: solid var(--blue) 0.1em;
+	box-shadow: 0 0.5em 0.75em rgba(75, 128, 241, 0.479)
+}
+
+form input[type="submit"] {
+	margin: 1.5em auto;
 }
 
 form input[type="number"] {
-    -moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+main form label input:valid ~ input[type="submit"] {
+	background-color: #77DD77;
+	background-color: var(--green);
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
 }
 
 /* --- gif --- */
