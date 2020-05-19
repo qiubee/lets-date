@@ -1,4 +1,4 @@
-function sendParemeter (req, res) {
+function home (req, res) {
 	const user = req.params.user;
 	console.log(user);
 	if (user === "love") {
@@ -8,4 +8,4 @@ function sendParemeter (req, res) {
 	}
 }
 
-module.exports = sendParemeter;
+module.exports = home;
