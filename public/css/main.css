@@ -70,28 +70,68 @@ a:hover {
 }
 
 /* --- main --- */
-
-header {
-	margin-bottom: 1em;
-	font-family: "L'Engineer", "Stay Writer", Segoe Script, Ubuntu, Times, Times New Roman, cursive;
+* {
 	font-family: var(--main-font);
 }
 
-nav svg {
-    height: 5em;
-    margin: 0.5em 0 0 0.5em;
+p {
+	font-family: var(--clear-font);
 }
 
-nav {
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+header {
+	font-family: "L'Engineer", "Stay Writer", Segoe Script, Ubuntu, Times, Times New Roman, cursive;
+	font-family: var(--main-font);
+	max-width: 60em;
+	margin: auto;
+	margin-bottom: 1em;
+}
+
+nav svg {
+	height: 4.5em;
+	margin-left: -0.6em;
+}
+
+header nav, main nav ul {
     display: flex;
     justify-content: space-between;
 }
 
-ul {
+header nav {
+	margin: 0 0.75em;
+}
+
+header ul {
     display: flex;
-    margin-right: 1.25em;
     align-self: center;
-    margin-top: 0.4em;
+}
+
+svg ~ ul li:nth-last-of-type(n+2) {
+	margin-right: 1em;
+}
+
+header.user ul {
+	width: 100%;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+main nav ul {
+	font-size: 1.25em;
+	margin: auto;
+	max-width: 18em;
+	justify-content: space-evenly;
+}
+
+li svg {
+	margin: initial;
 }
 
 a {
@@ -107,52 +147,34 @@ a:hover, a:focus {
     color: var(--yelange);
 }
 
-nav li:first-of-type a {
-    margin-right: 1.5em;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-}
-
-main.center {
-	height: 80%;
+a[href$="write"], a[href$="profile"] {
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-    margin: 0 auto;
+	
 }
 
-main > div {
-	font-family: "L'Engineer", "Stay Writer", Segoe Script, Ubuntu, Times, Times New Roman, cursive;
-	font-family: var(--main-font);
-    min-width: 17.5em;
-    min-height: 20em;
-    margin: 0 auto 2em auto;
-    border: solid rgba(47, 46, 49, 0.2) 0.1em;
-    box-shadow: 0 0.75em 0.75em rgba(47, 46, 49, 0.14);
+a[href$="write"] {
+	color: #5245C7;
+	color: var(--blue);
 }
 
-main > div > h1 {
-    font-weight: 600;
-    font-size: 1.75em;
-    color: var(--orange);
-    width: 10em;
-    margin: 1.5em auto 2em auto;
-    text-align: center; 
+a[href$="write"] svg {
+	height: initial;
+	margin: initial;
+	fill: #5245C7;
+	fill: var(--blue);
 }
 
-main div p {
-    font-weight: 600;
-    font-size: 1.125em;
-    color: var(--red);
-    line-height: 1.5em;
-    text-align: center;
-    width: 12.5em;
-    margin: 0 auto 2.5em auto;
+header svg ~ ul a[href$="login"] {
+	padding: 0.4em 1em;
+	font-size: 1.5em;
+	background-color: var(--green);
+	border: var(--green);
+	box-shadow: 0em 0.15em 0.4em rgba(216, 204, 35, 0.25);
 }
 
-main a[href="login"], form input[type="submit"]  {
+svg ~ ul a[href$="login"], main a[href="login"], form input[type="submit"] {
 	font-family: "L'Engineer", "Stay Writer", Segoe Script, Ubuntu, Times, Times New Roman, cursive;
     font-family: var(--main-font);
     font-weight: 600;
@@ -169,7 +191,46 @@ main a[href="login"], form input[type="submit"]  {
     transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.1s ease-out, transform 0.1s ease-out;
 }
 
-main a:hover, main a:focus, form input[type="submit"]:focus, form input[type="submit"]:hover {
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main.center {
+	height: 80%;
+	align-items: center;
+	justify-content: center;
+    margin: 0 auto;
+}
+
+main > div {
+	font-family: "Stay Writer", "L'Engineer", Segoe Script, Ubuntu, Times, Times New Roman, cursive;
+	font-family: var(--clear-font);
+	font-weight: 600;
+    margin: 0 auto 2em auto;
+    border: solid rgba(47, 46, 49, 0.2) 0.1em;
+    box-shadow: 0 0.75em 0.75em rgba(47, 46, 49, 0.14);
+}
+
+main > div > h1 {
+	font-family: var(--clear-font);
+    font-size: 1.75em;
+    color: var(--orange);
+    width: 10em;
+    margin: 1.5em auto 2em auto;
+    text-align: center; 
+}
+
+main div p {
+    font-size: 1.25em;
+    color: var(--red);
+    line-height: 1.5em;
+    text-align: center;
+    width: 12.5em;
+    margin: 0 auto 2.5em auto;
+}
+
+form input[type="submit"]:focus, form input[type="submit"]:hover, a[href="login"]:hover, a[href="login"]:focus {
 	border-color: #F6C231;
     border-color: var(--yelange);
 	background-color: #F6C231;
@@ -292,7 +353,7 @@ p.login-error {
     color: var(--black)
 }
 
-/* --- gif --- */
+/* --- GIF --- */
 
 img[src$=".gif"] {
     display: flex;
@@ -319,4 +380,30 @@ img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
 	text-decoration: underline;
 	margin-top: 1em;
     font-weight: bold;
+}
+
+@media (min-width: 30em) {
+	nav svg {
+		height: 5em;
+	}
+
+	header svg ~ ul a[href$="login"] {
+		padding: 0.5em 1.5em;
+	}
+
+	svg ~ ul li:nth-last-of-type(n+2) {
+		margin-right: 2.5em;
+	}
+}
+
+@media (min-width: 30em) and (max-width: 60em) {
+	nav svg ~ ul li:nth-last-of-type(n+1) {
+		margin-right: 1.5em;
+	}
+}
+
+@media (min-width: 60em) {
+	header nav {
+		margin: initial;
+	}
 }
