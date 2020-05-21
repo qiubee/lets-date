@@ -1,11 +1,11 @@
+const name = "Olivia";
+
 function home (req, res) {
-	const user = req.params.user;
-	console.log(user);
-	if (user === "love") {
-		res.json({message: "I " + user + " you"});
-	} else {
-		res.redirect("/login");
-	}
+	res.render("home", {
+		title: "Home - Liev",
+		stamp: "stamps/london.png",
+		username: name
+	});
 }
 
 module.exports = home;
