@@ -19,7 +19,7 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 		partialsDir: __dirname + "/views/partials/"
 	}))
 	.use(express.static("public")) // use public folder for static files
-	.use(express.urlencoded()) // to get data from http body
+	.use(express.urlencoded({extended: true})) // to get data from http body
 	.use(router) // routing
 	.use(errorHandler)
 	.disable("x-powered-by") // security
