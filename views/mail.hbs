@@ -1,0 +1,18 @@
+{{> userHeader}}
+<main>
+	{{> userNavigation}}
+	<section>
+		{{#each mail}}
+		<article>
+			<header>
+				<div>
+					<span>{{this.name}}, {{this.age}}</span>
+					<img src={{this.stamp.src}} alt={{this.stamp.alt}}>
+				</div>
+				<h2>{{this.title}}</h2>
+				<span>{{this.city}}, {{this.country}}</span>
+			</header>
+		</article>
+		{{/each}}
+	</section>
+</main>
