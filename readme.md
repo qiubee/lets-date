@@ -63,6 +63,7 @@ npm run dev
 * [MDN - Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 * [CSP: A successful mess between hardening and mitigation - Speakerdeck](https://speakerdeck.com/lweichselbaum/csp-a-successful-mess-between-hardening-and-mitigation?slide=46)
 * [CSP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
+* [Retrieve POST query parameters](https://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters)
 
 ## License
 
