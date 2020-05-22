@@ -197,10 +197,13 @@ main {
 }
 
 main.center {
-	height: 80%;
 	align-items: center;
 	justify-content: center;
     margin: 0 auto;
+}
+
+main.center-small {
+	height: 80%;
 }
 
 main > div {
