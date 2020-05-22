@@ -8,9 +8,8 @@ function processLogin (req, res) {
 	const password = req.body.password || undefined;
 	console.log(email, password);
 	if (email === userExample.email && password === userExample.password) {
-		return res.render("home", {
-			title: "Find a date - Liev"
-		});
+		// redirect to index with authorization token JWT and render homepage
+		return res.redirect("/");
 	} else if (email === undefined && password === undefined) {
 		return res.render("login", {
 			title: "Liev - Login",
