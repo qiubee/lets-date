@@ -119,7 +119,7 @@ svg ~ ul li:nth-last-of-type(n+2) {
 
 header.user ul {
 	width: 100%;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -406,7 +406,4 @@ img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
 }
 
 @media (min-width: 60em) {
-	header nav {
-		margin: initial;
-	}
 }
