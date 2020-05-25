@@ -11,12 +11,7 @@ async function connectDB () {
 		return client.db("liev");
 	} catch (err) {
 		console.error(err);
-	} 
-	// finally {
-	// 	await client.close();
-	// }
+	}
 }
-
-// connectDB();
 
 module.exports = connectDB;
