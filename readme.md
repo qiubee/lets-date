@@ -64,6 +64,13 @@ npm run dev
 * [CSP: A successful mess between hardening and mitigation - Speakerdeck](https://speakerdeck.com/lweichselbaum/csp-a-successful-mess-between-hardening-and-mitigation?slide=46)
 * [CSP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 * [Retrieve POST query parameters](https://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters)
+* [Quick start Node.js & MongoDB - MongoDB](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database)
+* [Special character in connection string password](https://docs.atlas.mongodb.com/troubleshoot-connection/#special-pass-characters)
+* [How to use MongoDB with Node.js - Flaviocopes](https://flaviocopes.com/node-mongodb/)
+* [Token authentication Express](https://developer.okta.com/blog/2019/02/14/modern-token-authentication-in-node-with-express)
+* [Authentication and authorization with node - Medium](https://medium.com/quick-code/handling-authentication-and-authorization-with-node-7f9548fedde8)
+* [Securing API's with JWT](https://medium.com/@joenjenga/securing-your-apis-node-js-using-jwt-46c5d5d99ccd)
+
 
 ## License
 
