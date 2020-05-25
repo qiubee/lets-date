@@ -71,7 +71,6 @@ npm run dev
 * [Authentication and authorization with node - Medium](https://medium.com/quick-code/handling-authentication-and-authorization-with-node-7f9548fedde8)
 * [Securing API's with JWT](https://medium.com/@joenjenga/securing-your-apis-node-js-using-jwt-46c5d5d99ccd)
 
-
 ## License
 
 [GNU General Public License v2.0](https://github.com/qiubee/liev/blob/master/LICENSE)
