@@ -2,8 +2,8 @@ const dotenv = require("dotenv");
 const express = require("express");
 const hbs = require("express-handlebars");
 const router = require("./routes/router");
-const database = require("./database/database");
 const errorHandler = require("./routes/errorHandler");
+const connectDB = require("./database/database");
 
 dotenv.config();
 
@@ -11,6 +11,7 @@ dotenv.config();
 const app = express();
 const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 8000;
+const db = connectDB || null;
 
 app.set("view engine", "hbs") // set handlebars as templating engine
 	.engine( "hbs", hbs({ 
@@ -21,7 +22,6 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 	}))
 	.use(express.static("public")) // use public folder for static files
 	.use(express.urlencoded({extended: true})) // to get data from http body
-	.use(database) // database processing
 	.use(router) // routing
 	.use(errorHandler)
 	.disable("x-powered-by") // security
