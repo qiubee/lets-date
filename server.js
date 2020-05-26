@@ -3,7 +3,7 @@ const express = require("express");
 const hbs = require("express-handlebars");
 const router = require("./routes/router");
 const errorHandler = require("./routes/errorHandler");
-const connectDB = require("./database/database");
+const db = require("./database/database");
 
 dotenv.config();
 
@@ -11,7 +11,10 @@ dotenv.config();
 const app = express();
 const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 8000;
-const db = connectDB || null;
+db.connect();
+// connectDB(function (db) {
+// 	db.collection.find("")
+// });
 
 app.set("view engine", "hbs") // set handlebars as templating engine
 	.engine( "hbs", hbs({ 
