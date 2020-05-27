@@ -71,6 +71,7 @@ npm run dev
 * [Special character in connection string password](https://docs.atlas.mongodb.com/troubleshoot-connection/#special-pass-characters)
 * [How to use MongoDB with Node.js - Flaviocopes](https://flaviocopes.com/node-mongodb/)
 * [MongoDB Server example](https://github.com/cmda-bt/be-course-19-20/tree/master/examples/mongodb-server)
+* [Hashing passwords with Bcrypt](https://www.abeautifulsite.net/hashing-passwords-with-nodejs-and-bcrypt)
 * [Token authentication Express](https://developer.okta.com/blog/2019/02/14/modern-token-authentication-in-node-with-express)
 * [Authentication and authorization with node - Medium](https://medium.com/quick-code/handling-authentication-and-authorization-with-node-7f9548fedde8)
 * [Securing API's with JWT](https://medium.com/@joenjenga/securing-your-apis-node-js-using-jwt-46c5d5d99ccd)
