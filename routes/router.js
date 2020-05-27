@@ -11,8 +11,8 @@ const index = require("./controllers/index"),
 	profile = require("./controllers/profile"),
 	realSecret = require("./controllers/gifs"),
 	secretDownload = require("./controllers/secretdownload"),
-	processLogin = require("./controllers/dataLogin"),
-	processSignup = require("./controllers/dataSignup"),
+	processLogin = require("./controllers/processLogin"),
+	processSignup = require("./controllers/processSignup"),
 	error = require("./controllers/error");
 
 router.get("/", index)
