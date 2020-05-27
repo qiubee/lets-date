@@ -43,6 +43,18 @@ async function connect (callback) {
 	}
 }
 
+function test (srv = true) {
+	if (srv === true) {
+		connectSRV(testLog);
+	} else {
+		connect(testLog);
+	}
+	function testLog (db) {
+		console.log("[Test]");
+		console.log(db);
+	}
+}
+
 function add (collectionName, data) {
 	connect(function(db) {
 		db.collection(collectionName).insertOne(data);
@@ -59,3 +71,4 @@ exports.connectSRV = connectSRV;
 exports.connect = connect;
 exports.add = add;
 exports.remove = remove;
+exports.test = test;
