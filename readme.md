@@ -4,6 +4,8 @@ Find love by writing love-letters and write back when you've found the one.
 
 Once you've written your first love-letter, all the love-letters that have been written can be opened. Respond by writing a personal private letter, start the correspondence and get to know each other.
 
+[**Go to demo >**](https://liev-dating.herokuapp.com)
+
 ## Table of Contents
 
 1. [**Features**](#features)
@@ -20,6 +22,7 @@ Once you've written your first love-letter, all the love-letters that have been 
 
 * Express
 * Express-handlebars
+* MongoDB
 
 For other dependencies see [**`package.json`**](package.json)
 
