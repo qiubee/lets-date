@@ -1,97 +1,61 @@
 const MongoClient = require("mongodb").MongoClient;
 
-async function connectDB (callback) {
+async function connectSRV (callback) {
 	const uri = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOSTNAME + "/test?retryWrites=true&w=majority";
 	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+	console.log("\u001b[1m\u001b[37m-- \u001b[32mConnecting to " + process.env.DB_HOSTNAME + " \u001b[37m--\u001b[0m");
 	try {
-		console.log("\u001b[1m\u001b[37m-- \u001b[32mConnecting to " + process.env.DB_HOSTNAME + " \u001b[37m--\u001b[0m");
 		await client.connect();
-		console.log("\u001b[1m\u001b[37m-- \u001b[32mConnected to database \u001b[37m--\u001b[0m");
+		console.log("\u001b[1m\u001b[37m-- \u001b[32mConnected \u001b[37m--\u001b[0m");
 		console.log("\u001b[37mAccess granted to " + process.env.DB_HOSTNAME + "\u001b[0m");
 		const db = client.db(process.env.DB_NAME);
-		console.log("\u001b[37mAccessing " + process.env.DB_NAME + " database\u001b[0m");
+		console.log("\u001b[37mYou have access to: " + process.env.DB_NAME + " database\u001b[0m");
+		console.log("\u001b[37mPerforming action...\u001b[0m");
 		await callback(db);
+		console.log("\u001b[32mAction completed\u001b[37m\nEnding connection...\u001b[0m");
 	} catch (err) {
 		console.log(err);
 	} finally {
 		await client.close();
+		console.log("\u001b[1m\u001b[37m-- \u001b[31mDisconnected \u001b[37m--\u001b[0m");
 	}
 }
 
-exports.test = async function test (callback) {
-	// const client = createClient();
-	// console.log(client);
-	// const db = await connect(client);
-	// await close(client);
-	
+async function connect (callback) {
 	const uri = "mongodb://"+ process.env.DB_NAME + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOSTNAME + ":27017/?authSource=admin";
 	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+	console.log("\u001b[1m\u001b[37m-- \u001b[32mConnecting to \u001b[37m" + process.env.DB_HOSTNAME + " \u001b[37m--\u001b[0m");
 	try {
-		client.connect(function (err) {
-			console.log("connected");
+		client.connect(function() {
+			console.log("\u001b[1m\u001b[37m-- \u001b[32mConnected \u001b[37m--\u001b[0m");
+			console.log("\u001b[37mAccess granted to " + process.env.DB_HOSTNAME + "\u001b[0m");
 			const db = client.db(process.env.DB_NAME);
-			console.log(db);
+			console.log("\u001b[37mYou have access to: " + process.env.DB_NAME + " database\u001b[0m");
+			console.log("\u001b[37mPerforming action...\u001b[0m");
+			callback(db);
+			console.log("\u001b[32mAction completed\u001b[37m\nEnding connection...\u001b[0m");
 		});
 	} catch (err) {
 		console.log(err);
 	} finally {
-		client.close();
-	}
-};
-
-function createClient () {
-	const uri = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOSTNAME + "/test?retryWrites=true&w=majority";
-	return new MongoClient(uri, { useNewUrlParser: true });
-}
-
-async function close (client) {
-	await client.close();
-}
-
-async function connect (client) {
-	try {
-		await client.connect();
-		console.log("connected");
-		return client.db(process.env.DB_NAME);
-	} catch (err) {
-		console.error(err);
+		await client.close();
+		console.log("\u001b[1m\u001b[37m-- \u001b[31mDisconnected \u001b[37m--\u001b[0m");
 	}
 }
 
-async function add (collectionName, data) {
-	const client = createClient();
-	const db = await connect(client);
-	try {
-		await db.collection(collectionName).insertOne(data);
-	} catch (err) {
-		console.error(err);
-	} finally {
-		await close(client);
-	}
+function add (collectionName, data) {
+	connect(function(db) {
+		db.collection(collectionName).insertOne(data);
+	});
 }
 
-async function remove (collectionName, query) {
-	const client = createClient();
-	const db = await connect(client);
-	try {
-		await db.collection(collectionName).deleteOne(query);
-	} catch (err) {
-		console.error(err);
-	} finally {
-		await close(client);
-	}
+function remove (collectionName, query) {
+	connect(function(db) {
+		db.collection(collectionName).deleteOne(query);
+	});
 }
 
-async function find (collectionName, query) {
-	const client = createClient();
-	const db = await connect(client);
-	try {
-		await db.collection(collectionName).deleteOne(query);
-	} catch (err) {
-		console.error(err);
-	} finally {
-		await close(client);
-	}
-}
-
-exports.connect = connectDB;
+exports.connectSRV = connectSRV;
+exports.connect = connect;
+exports.add = add;
+exports.remove = remove;
