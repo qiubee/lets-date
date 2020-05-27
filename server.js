@@ -3,8 +3,9 @@ const express = require("express");
 const hbs = require("express-handlebars");
 const router = require("./routes/router");
 const errorHandler = require("./routes/errorHandler");
-dotenv.config();
 
+dotenv.config();
+ 
 // server
 const app = express();
 const host = process.env.HOST || "localhost";
