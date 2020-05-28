@@ -1,17 +1,35 @@
-const { connect } = require("../../database/database");
-const { hash } = require("bcrypt");
+const { connect, add } = require("../../database/database");
+const { genSalt, hash } = require("bcrypt");
 
 function checkMail (mail) {
-	connect(function(db) {
-		db.users.find({ email : { $eq: mail}});
+	let free = true;
+	connect(async function(db) {
+		const existingEmails = await db.users.find({ email : { $eq: mail}});
+		if (!existingEmails.length) {
+			return;
+		} else if (existingEmails.length > 0) {
+			free = false;
+			return;
+		}
 	});
+	if (free === true) {
+		return "free";
+	} else {
+		return "used";
+	}
 }
 
-function hashPassword (password) {
-	return hash(password, 10);
+async function hashString (string) {
+	try {
+		const salt = await genSalt();
+		const hashed = await hash(string, salt);
+		return hashed;
+	} catch (err) {
+		console.error(err);
+	}
 }
 
-function checkFalsy (data) {
+function checkForFalsy (data) {
 	let falsy = 0;
 	Object.keys(data).map(function(key) {
 		if (!data[key]) {
@@ -25,16 +43,16 @@ function checkFalsy (data) {
 	}
 }
 
-function processSignup (req, res) {
+async function processSignup (req, res) {
 	const user = req.body;
-	if (checkFalsy(user) === true) {
+	if (checkForFalsy(user) === true) {
 		return res.render("signup", {
 			title: "Sign Up - Liev",
 			empty: true
 		});
 	}
 	const mail = user.mail;
-	if (checkMail(mail) === "in use") {
+	if (checkMail(mail) === "used") {
 		return res.render("signup", {
 			title:" Sign Up - Liev",
 			emailInUse: true
@@ -47,9 +65,15 @@ function processSignup (req, res) {
 		});
 	}
 	console.log("\u001b[32mPassword match\u001b[0m");
-	const password = hashPassword(user.password[0]);
-	console.log(password);
+	const password = await hashString(user.password[0]);
 	const name = user.name.replace(/[\d\W\0_]/g, "");
+
+	add("users", {
+		name: name,
+		age: user.age,
+		email: mail,
+		password: password
+	});
 	res.redirect("/");
 }
 
