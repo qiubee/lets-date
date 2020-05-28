@@ -3,9 +3,10 @@ const express = require("express");
 const hbs = require("express-handlebars");
 const router = require("./routes/router");
 const errorHandler = require("./routes/errorHandler");
+const session = require("express-session");
 
 dotenv.config();
- 
+
 // server
 const app = express();
 const host = process.env.HOST || "localhost";
@@ -17,6 +18,16 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 		defaultLayout: "default", 
 		layoutsDir: __dirname + "/views/layouts/",
 		partialsDir: __dirname + "/views/partials/"
+	}))
+	.use(session({ // use sessions
+		saveUninitialized: true,
+		resave: true,
+		secret: process.env.S_SECRET,
+		cookie: {
+			httpOnly: true,
+			// secure: true,
+			sameSite: true
+		}
 	}))
 	.use(express.static("public")) // use public folder for static files
 	.use(express.urlencoded({extended: true})) // to get data from http body
