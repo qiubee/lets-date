@@ -25,6 +25,7 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 		secret: process.env.S_SECRET,
 		cookie: {
 			httpOnly: true,
+			maxAge: 12 * 60 * 60 * 1000,
 			// secure: true,
 			sameSite: true
 		}
