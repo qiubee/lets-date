@@ -1,26 +1,42 @@
-const userExample = {
-	email: "mail@mail.com",
-	password: "nononono"
-};
+const {connect} = require("../../database/database");
 
-function processLogin (req, res) {
+async function match (email, password) {
+	connect(async function(db) {
+		const user = await db.users.find({ email: { $eq: email}}).toArray();
+		console.log(user);
+	});
+}
+
+async function processLogin (req, res) {
 	const email = req.body.email || undefined;
 	const password = req.body.password || undefined;
-	console.log(email, password);
-	if (email === userExample.email && password === userExample.password) {
-		// redirect to index with authorization token JWT and render homepage
-		return res.redirect("/");
-	} else if (email === undefined && password === undefined) {
+	if (email === undefined && password === undefined) {
 		return res.render("login", {
 			title: "Liev - Login",
 			empty: true
 		});
-	} else if (email !== userExample.email || password !== userExample.password) {
-		return res.render("login", {
-			title: "Liev - Login",
-			incorrect: true,
-		});
 	}
+	const status = match(email, password);
+	console.log(status);
+	res.redirect("/login");
+	// if (match(email, password) === true) {
+	// 	connect(async function (db) {
+	// 		const name = await db.users.find({
+	// 			email: email
+	// 		}).toArray();
+	// 		console.log(name);
+	// 		// req.session.user = {user: name};
+	// 		return;
+	// 	});
+	// 	return res.redirect("/");
+	// }
+	
+	// if (email !== userExample.email || password !== userExample.password) {
+	// 	return res.render("login", {
+	// 		title: "Liev - Login",
+	// 		incorrect: true,
+	// 	});
+	// }
 }
 
 module.exports = processLogin;
