@@ -21,7 +21,7 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 	}))
 	.use(session({ // use sessions
 		saveUninitialized: true,
-		resave: true,
+		resave: false,
 		secret: process.env.S_SECRET,
 		cookie: {
 			httpOnly: true,
