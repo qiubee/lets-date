@@ -76,6 +76,8 @@ npm run dev
 * [Token authentication Express](https://developer.okta.com/blog/2019/02/14/modern-token-authentication-in-node-with-express)
 * [Authentication and authorization with node - Medium](https://medium.com/quick-code/handling-authentication-and-authorization-with-node-7f9548fedde8)
 * [Securing API's with JWT](https://medium.com/@joenjenga/securing-your-apis-node-js-using-jwt-46c5d5d99ccd)
+* [Session vs Token Based Authentication - Medium](https://medium.com/@sherryhsu/session-vs-token-based-authentication-11a6c5ac45e4)
+* [Authentication on the Web - YouTube](https://www.youtube.com/watch?v=2PPSXonhIck)
 
 ## License
 
