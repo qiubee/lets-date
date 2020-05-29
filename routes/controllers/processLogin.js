@@ -16,7 +16,7 @@ async function processLogin (req, res) {
 			empty: true
 		});
 	}
-	const status = match(email, password);
+	const status = await match(email, password);
 	console.log(status);
 	res.redirect("/login");
 	// if (match(email, password) === true) {
