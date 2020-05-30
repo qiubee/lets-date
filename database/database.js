@@ -10,7 +10,7 @@ async function connect (callback) {
 	try {
 		await client.connect();
 		console.log("\u001b[1m\u001b[37m-- \u001b[32mConnected \u001b[37m--\u001b[0m");
-		console.log("\u001b[37mAccess granted to " + process.env.DB_HOST + "\u001b[0m");
+		console.log("\u001b[37mAccess granted\u001b[0m");
 		const db = client.db(process.env.DB_NAME);
 		console.log("\u001b[37mYou have access to database: " + process.env.DB_NAME + "\u001b[0m");
 		console.log("\u001b[37mPerforming action...\u001b[0m");
