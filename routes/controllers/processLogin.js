@@ -1,8 +1,8 @@
-const {connect} = require("../../database/database");
+const { connect } = require("../../database/database");
 
 async function match (email, password) {
 	connect(async function(db) {
-		const user = await db.users.find({ email: { $eq: email}}).toArray();
+		const user = await db.collection("users").find({ email: { $eq: email}}).toArray();
 		console.log(user);
 	});
 }
