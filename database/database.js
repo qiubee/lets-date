@@ -27,12 +27,14 @@ async function connect (callback) {
 
 function add (collectionName, data) {
 	connect(async function(db) {
+		console.log("[--Adding object to database--]");
 		await db.collection(collectionName).insertOne(data);
 	});
 }
 
 function remove (collectionName, query) {
 	connect(async function(db) {
+		console.log("[--Removing object from database--]");
 		await db.collection(collectionName).deleteOne(query);
 	});
 }
