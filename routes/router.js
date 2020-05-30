@@ -27,7 +27,7 @@ router.get("/", index)
 	.get("/mail", mail)
 	// Data processing
 	.post("/login", login.post)
-	.post("/signup", login.post)
+	.post("/signup", signup.post)
 	.post("/profile", profile.create)
 	// Error handling
 	.get("*", error); // give error on any route that has not been defined
