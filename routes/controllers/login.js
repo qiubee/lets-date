@@ -1,10 +1,21 @@
 const { connect } = require("../../database/database");
+const { compare } = require("bcrypt");
+const { v4: uuidv4 } = require("uuid");
 
 async function match (email, password) {
-	connect(async function(db) {
-		const user = await db.collection("users").find({ email: { $eq: email}}).toArray();
-		console.log(user);
+	let match = false;
+	await connect(async function(db) {
+		console.log("[--Verifying credentials--]");
+		const user = await db.collection("users").findOne({ email: { $eq: email}});
+		if (!user) {
+			return;
+		} else if (await compare(password, user.password) === false) {
+			return;
+		} else {
+			match = true;
+		}
 	});
+	return match;
 }
 
 async function post (req, res) {
@@ -15,28 +26,15 @@ async function post (req, res) {
 			title: "Liev - Login",
 			empty: true
 		});
+	} else if (await match(email, password) === false) {
+		return res.render("login", {
+			title: "Liev - Login",
+			incorrect: true,
+		});
 	}
-	const status = await match(email, password);
-	console.log(status);
-	res.redirect("/login");
-	// if (match(email, password) === true) {
-	// 	connect(async function (db) {
-	// 		const name = await db.users.find({
-	// 			email: email
-	// 		}).toArray();
-	// 		console.log(name);
-	// 		// req.session.user = {user: name};
-	// 		return;
-	// 	});
-	// 	return res.redirect("/");
-	// }
-	
-	// if (email !== userExample.email || password !== userExample.password) {
-	// 	return res.render("login", {
-	// 		title: "Liev - Login",
-	// 		incorrect: true,
-	// 	});
-	// }
+	req.session.auth = uuidv4();
+	req.session.email = email;
+	res.redirect("/");
 }
 
 function get (req, res) {
