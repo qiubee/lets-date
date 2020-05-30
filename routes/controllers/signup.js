@@ -13,6 +13,7 @@ async function checkMail (mail) {
 			return;
 		}
 	});
+	console.log("result");
 	if (free === true) {
 		return "free";
 	} else {
@@ -67,7 +68,6 @@ async function post (req, res) {
 	}
 	console.log("\u001b[32mPassword match\u001b[0m");
 	const password = await hashString(user.password[0]);
-	const name = user.name.replace(/[\d\W\0_]/g, "");
 
 	add("users", {
 		email: mail,
