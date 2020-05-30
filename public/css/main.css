@@ -79,11 +79,11 @@ p {
 }
 
 h1 {
-	font-size: 2.5em;
+	font-size: 2em;
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 1.75em;
 }
 
 header {
@@ -121,6 +121,11 @@ header.user ul {
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+}
+
+header.center nav svg {
+	margin: 0 auto;
+	margin-top: 1.75em;
 }
 
 main nav ul {
@@ -245,9 +250,13 @@ main a:active, form input[type="submit"]:active {
     transform: translateY(0.25em);
 }
 
+.center {
+	margin: 0 auto;
+}
+
 /* -- Form -- */
 
-main form h1 {
+main form h1, legend {
     font-weight: 600;
 	font-size: 1.75em;
 	color: #F39F0E;
@@ -263,6 +272,16 @@ main form {
     font-family: var(--main-font);
     align-items: center;
     margin: 7.5em auto;
+}
+
+fieldset {
+	border: none;
+	margin-bottom: 2em;
+}
+
+legend {
+	margin: 0 auto;
+	margin-bottom: 1em;
 }
 
 form[action$="signup"] {
@@ -287,6 +306,24 @@ main form label input  {
     font-weight: 600;
 	font-size: 1.1em;
 	letter-spacing: 0.02em;
+}
+
+main form label input[type="radio"] {
+	position: fixed;
+	opacity: 0;
+}
+
+img[alt^="Flag"] {
+	max-width: 4em;
+	/* background-color: grey; */
+	padding: 0.5em;
+}
+
+main form label input[type="radio"] ~ div:hover {
+	cursor: pointer;
+}
+
+main form label input:not([type="radio"]) {
 	color: #5245C7;
     color: var(--blue);
 	border: none;
@@ -295,7 +332,7 @@ main form label input  {
     box-shadow: 0 0.5em 0.75em rgba(204, 203, 201, 0.35);
     padding: 0.25em 0.5em 0.25em 0.25em;
 	margin: 0.25em 0 1.5em 0;
-	transition: border-bottom ease-in 0.35s, box-shadow ease-in 0.35s ;
+	transition: border-bottom ease-in 0.35s, box-shadow ease-in 0.35s;
 }
 
 main form label input::placeholder {
@@ -303,25 +340,25 @@ main form label input::placeholder {
 	color: var(--grey);
 }
 
-main form label input:valid:not(:placeholder-shown):not([name="name"]) {
+main form label input:not([type="radio"]):valid:not(:placeholder-shown):not([name="name"]) {
 	border-bottom: solid #77dd77 0.1em;
 	border-bottom: solid var(--green) 0.1em;
 	box-shadow: 0 0.5em 0.75em rgba(27, 250, 75, 0.35);
 }
 
-main form label input:invalid {
+main form label input:not([type="radio"]):invalid {
 	border-bottom: solid #ED541B 0.1em;
 	border-bottom: solid var(--red) 0.1em;
 	box-shadow: 0 0.5em 0.75em rgba(240, 99, 44, 0.35);
 }
 
-main form label input:required {
+main form label input:not([type="radio"]):required {
 	border-bottom: solid #F6BF26 0.1em;
 	border-bottom: solid var(--yelange) 0.1em;
 	box-shadow: 0 0.5em 0.75em rgba(234, 238, 22, 0.479)
 }
 
-main form label input:focus  {
+main form label input:not([type="radio"]):focus  {
 	border-bottom: solid #5245C7 0.1em;
 	border-bottom: solid var(--blue) 0.1em;
 	box-shadow: 0 0.5em 0.75em rgba(75, 128, 241, 0.479)
@@ -354,6 +391,72 @@ p.login-error {
 	background-color: #FD9B9B;
     color: black;
     color: var(--black)
+}
+
+form[action="/profile"] {
+	margin: 2em auto 1em auto;
+}
+
+form[action="/profile"] h1 {
+	font-size: 2em;
+	margin-bottom: 2em;
+	color: var(--red);
+}
+
+form[action="/profile"] p {
+	font-weight: 600;
+	margin-bottom: 1em;
+}
+
+form[action="/profile"] fieldset:last-of-type label {
+	align-items: center;
+}
+
+form[action="/profile"] fieldset:not(:last-of-type) span {
+	position: absolute;
+	top: -999em;
+	left: -999em;
+}
+
+form[action="/profile"] input:not([type="radio"]) {
+	text-align: center;
+}
+
+form[action="/profile"] fieldset:last-of-type {
+	margin-bottom: initial;
+}
+
+form[action="/profile"] fieldset:last-of-type > div {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 1em;
+	column-gap: 1em;
+}
+
+form[action="/profile"] fieldset:last-of-type label div {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	padding: 0.5em 0.75em;
+	border-radius: 0.75em;
+	border: 0.1em solid #D3D3D8;
+	box-shadow: 0 0.5em 0.75em rgba(143, 165, 214, 0.25);
+}
+
+main form input[type="radio"]:checked + div {
+	border: 0.1em solid var(--green);
+	background-color: rgba(243, 236, 137, 0.733);
+	box-shadow: rgba(27, 250, 75, 0.35);
+}
+
+form[action="/profile"] fieldset:last-of-type label span {
+	text-align: center;
+	font-family: var(--clear-font);
+	/* margin-top: -0.5em; */
+}
+
+form[action="/profile"] fieldset:last-of-type label:last-of-type {
+	grid-column: span 2;
 }
 
 /* --- GIF --- */
@@ -397,6 +500,10 @@ img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
 	svg ~ ul li:nth-last-of-type(n+2) {
 		margin-right: 2.5em;
 	}
+
+	form[action="/profile"] fieldset:last-of-type label {
+		flex-direction: row;
+	}
 }
 
 @media (min-width: 30em) and (max-width: 60em) {
@@ -406,4 +513,11 @@ img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
 }
 
 @media (min-width: 60em) {
+	h1 {
+		font-size: 2.5em;
+	}
+	
+	h2 {
+		font-size: 2em;
+	}
 }
