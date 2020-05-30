@@ -1,10 +1,11 @@
 const { connect, add } = require("../../database/database");
 const { genSalt, hash } = require("bcrypt");
+const {v4: uuidv4} = require("uuid");
 
-function checkMail (mail) {
+async function checkMail (mail) {
 	let free = true;
-	connect(async function(db) {
-		const existingEmails = await db.users.find({ email : { $eq: mail}});
+	await connect(async function(db) {
+		const existingEmails = await db.collection("users").find({ email : { $eq: mail}});
 		if (!existingEmails.length) {
 			return;
 		} else if (existingEmails.length > 0) {
@@ -52,7 +53,7 @@ async function processSignup (req, res) {
 		});
 	}
 	const mail = user.mail;
-	if (checkMail(mail) === "used") {
+	if (await checkMail(mail) === "used") {
 		return res.render("signup", {
 			title:" Sign Up - Liev",
 			emailInUse: true
@@ -68,13 +69,14 @@ async function processSignup (req, res) {
 	const password = await hashString(user.password[0]);
 	const name = user.name.replace(/[\d\W\0_]/g, "");
 
-	add("users", {
-		name: name,
-		age: user.age,
-		email: mail,
-		password: password
-	});
-	res.redirect("/");
+	// add("users", {
+	// 	email: mail,
+	// 	password: password
+	// });
+
+	req.session.auth = uuidv4();
+	req.session.email = mail;
+	res.redirect("/create-profile");
 }
 
 module.exports = processSignup;
