@@ -11,15 +11,13 @@ const index = require("./controllers/index"),
 	profile = require("./controllers/profile"),
 	realSecret = require("./controllers/gifs"),
 	secretDownload = require("./controllers/secretdownload"),
-	processLogin = require("./controllers/processLogin"),
-	processSignup = require("./controllers/processSignup"),
 	error = require("./controllers/error");
 
 router.get("/", index)
-	.get("/login", login)
+	.get("/login", login.get)
 	.get("/logout", logout)
-	.get("/signup", signup)
-	.get("/create-profile", profile.create)
+	.get("/signup", signup.get)
+	.get("/create-profile", profile.getSetup)
 	.get("/about", about)
 	.get(/.*secret\/?$/, secret)
 	.get("/secret/:item", realSecret)
@@ -28,8 +26,9 @@ router.get("/", index)
 	.get("/profile", profile.get)
 	.get("/mail", mail)
 	// Data processing
-	.post("/login", processLogin)
-	.post("/signup", processSignup)
+	.post("/login", login.post)
+	.post("/signup", login.post)
+	.post("/profile", profile.create)
 	// Error handling
 	.get("*", error); // give error on any route that has not been defined
 	
