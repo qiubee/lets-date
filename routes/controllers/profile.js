@@ -21,6 +21,8 @@ function setup (req, res) {
 }
 
 function create (req, res) {
+	const user = req.body;
+	const name = user.name.replace(/[\d\W\0_]/g, "");
 	// process new user information and add to database
 }
 
