@@ -340,7 +340,7 @@ main form label input::placeholder {
 	color: var(--grey);
 }
 
-main form label input:not([type="radio"]):valid:not(:placeholder-shown):not([name="name"]) {
+main form label input:not([type="radio"]):valid:not(:placeholder-shown) {
 	border-bottom: solid #77dd77 0.1em;
 	border-bottom: solid var(--green) 0.1em;
 	box-shadow: 0 0.5em 0.75em rgba(27, 250, 75, 0.35);
