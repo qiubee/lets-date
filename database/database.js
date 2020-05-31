@@ -43,10 +43,10 @@ function remove (collectionName, query, multiple = false) {
 			console.log("[--Removing object from database--]");
 			await db.collection(collectionName).deleteOne(query);
 		} else if (multiple === true) {
-			console.log("[--Removing multiple objects from database--]");
 			if (Object.keys(query).length === 0 && query.constructor === Object) { // check for empty object: https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object
 				throw new Error("Deleting all documents is not allowed");
 			} else {
+				console.log("[--Removing multiple objects from database--]");
 				await db.collection(collectionName).deleteMany(query);
 			}
 		}
