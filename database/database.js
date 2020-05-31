@@ -54,14 +54,14 @@ function remove (collectionName, query, multiple = false) {
 	});
 }
 
-function update (collectionName, query, multiple = false) {
+function update (collectionName, filterQuery, updateQuery,  multiple = false) {
 	connect(async function(db) {
 		if (multiple === false) {
 			console.log("[--Updating object in database--]");
-			await db.collection(collectionName).updateOne(query);
+			await db.collection(collectionName).updateOne(filterQuery, updateQuery);
 		} else if (multiple === true) {
 			console.log("[--Updating multiple objects in database--]");
-			await db.collection(collectionName).updateMany(query);
+			await db.collection(collectionName).updateMany(filterQuery, updateQuery);
 		}
 	});
 }
