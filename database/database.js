@@ -44,9 +44,8 @@ function remove (collectionName, query, multiple = false) {
 			await db.collection(collectionName).deleteOne(query);
 		} else if (multiple === true) {
 			console.log("[--Removing multiple objects from database--]");
-			if (query === "{}") {
-				console.log("\u001b[38;5;196m[Error] Deleting all documents is not allowed\u001b[0m");
-				return;
+			if (Object.keys(query).length === 0 && query.constructor === Object) { // check for empty object: https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object
+				throw new Error("Deleting all documents is not allowed");
 			} else {
 				await db.collection(collectionName).deleteMany(query);
 			}
