@@ -72,6 +72,7 @@ npm run dev
 * [How to use MongoDB with Node.js - Flaviocopes](https://flaviocopes.com/node-mongodb/)
 * [MongoDB Server example](https://github.com/cmda-bt/be-course-19-20/tree/master/examples/mongodb-server)
 * [Get started - MongoDB](https://docs.mongodb.com/manual/tutorial/getting-started/)
+* [MongoDB CRUD Operations - MongoDB](https://docs.mongodb.com/manual/crud/)
 * [Hashing passwords with Bcrypt](https://www.abeautifulsite.net/hashing-passwords-with-nodejs-and-bcrypt)
 * [Token authentication Express](https://developer.okta.com/blog/2019/02/14/modern-token-authentication-in-node-with-express)
 * [Authentication and authorization with node - Medium](https://medium.com/quick-code/handling-authentication-and-authorization-with-node-7f9548fedde8)
