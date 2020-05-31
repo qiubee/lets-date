@@ -17,7 +17,9 @@ function setup (req, res) {
 		res.status(401);
 		return res.redirect("/login");
 	}
-	res.render("create-profile");
+	res.render("create-profile", {
+		maxYear: new Date().getFullYear() - 18
+	});
 }
 
 function create (req, res) {
