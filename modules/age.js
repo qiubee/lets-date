@@ -1,8 +1,8 @@
 const getWeekNumber = require("./week-number");
 
-function calculateAge (year, weeknumber) {
-	if (!year || !weeknumber) {
-		throw new Error("Invalid arguments");
+module.exports = function calculateAge (year, weeknumber = 1) {
+	if (!year || typeof year !== "number") {
+		throw new Error("Invalid argument");
 	}
 	const currentYear = new Date().getFullYear();
 	const currentWeek = getWeekNumber();
@@ -11,6 +11,4 @@ function calculateAge (year, weeknumber) {
 	} else {
 		return (currentYear - year);
 	}
-}
-
-exports.getAge = calculateAge;
+};
