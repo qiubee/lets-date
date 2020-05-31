@@ -25,20 +25,48 @@ async function connect (callback) {
 	}
 }
 
-function add (collectionName, data) {
+function add (collectionName, data, multiple = false) {
 	connect(async function(db) {
-		console.log("[--Adding object to database--]");
-		await db.collection(collectionName).insertOne(data);
+		if (multiple === false) {
+			console.log("[--Adding object to database--]");
+			await db.collection(collectionName).insertOne(data);
+		} else if (multiple === true && data instanceof Array === true) {
+			console.log("[--Adding multiple objects to database--]");
+			await db.collection(collectionName).insertMany(data);
+		}
 	});
 }
 
-function remove (collectionName, query) {
+function remove (collectionName, query, multiple = false) {
 	connect(async function(db) {
-		console.log("[--Removing object from database--]");
-		await db.collection(collectionName).deleteOne(query);
+		if (multiple === false) {
+			console.log("[--Removing object from database--]");
+			await db.collection(collectionName).deleteOne(query);
+		} else if (multiple === true) {
+			console.log("[--Removing multiple objects from database--]");
+			if (query === "{}") {
+				console.log("\u001b[38;5;196m[Error] Deleting all documents is not allowed\u001b[0m");
+				return;
+			} else {
+				await db.collection(collectionName).deleteMany(query);
+			}
+		}
+	});
+}
+
+function update (collectionName, query, multiple = false) {
+	connect(async function(db) {
+		if (multiple === false) {
+			console.log("[--Updating object in database--]");
+			await db.collection(collectionName).updateOne(query);
+		} else if (multiple === true) {
+			console.log("[--Updating multiple objects in database--]");
+			await db.collection(collectionName).updateMany(query);
+		}
 	});
 }
 
 exports.connect = connect;
 exports.add = add;
+exports.update = update;
 exports.remove = remove;
