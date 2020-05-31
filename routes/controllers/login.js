@@ -18,6 +18,19 @@ async function match (email, password) {
 	return match;
 }
 
+async function getProfileStatus (email) {
+	let status;
+	await connect(async function(db) {
+		console.log("[--Checking profile status--]");
+		const user = await db.collection("users").findOne({ email: { $eq: email}});
+		if (!user) {
+			return;
+		}
+		status = user.profileStatus;
+	});
+	return status;
+}
+
 async function post (req, res) {
 	const email = req.body.email || undefined;
 	const password = req.body.password || undefined;
@@ -31,10 +44,15 @@ async function post (req, res) {
 			title: "Liev - Login",
 			incorrect: true,
 		});
+	} else {
+		req.session.auth = uuidv4();
+		req.session.email = email;
+		if (await getProfileStatus(email) === "setup") {
+			return res.redirect("/create-profile");
+		} else {
+			return res.redirect("/");
+		}
 	}
-	req.session.auth = uuidv4();
-	req.session.email = email;
-	res.redirect("/");
 }
 
 function get (req, res) {
