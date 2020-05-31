@@ -71,7 +71,8 @@ async function post (req, res) {
 
 	add("users", {
 		email: email,
-		password: password
+		password: password,
+		profileStatus: "setup"
 	});
 
 	req.session.auth = uuidv4();
