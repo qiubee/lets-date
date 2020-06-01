@@ -18,19 +18,6 @@ async function match (email, password) {
 	return match;
 }
 
-async function getProfileStatus (email) {
-	let status;
-	await connect(async function(db) {
-		console.log("[--Checking profile status--]");
-		const user = await db.collection("users").findOne({ email: { $eq: email}});
-		if (!user) {
-			return;
-		}
-		status = user.profileStatus;
-	});
-	return status;
-}
-
 async function post (req, res) {
 	const email = req.body.email || undefined;
 	const password = req.body.password || undefined;
@@ -45,12 +32,25 @@ async function post (req, res) {
 			incorrect: true,
 		});
 	} else {
+		let status;
+		await connect(async function(db) {
+			console.log("[--Fetching user data--]");
+			const user = await db.collection("users").findOne({ email: { $eq: email}});
+			if (!user) {
+				return;
+			}
+			status = user.profileStatus;
+			if (user.name) {
+				req.session.name = user.name;
+				console.log(req.session.name);
+			}
+		});
 		req.session.auth = uuidv4();
 		req.session.email = email;
-		if (await getProfileStatus(email) === "setup") {
-			return res.redirect("/create-profile");
-		} else {
+		if (status === "active") {
 			return res.redirect("/");
+		} else if (status === "setup") {
+			return res.redirect("/create-profile");
 		}
 	}
 }
