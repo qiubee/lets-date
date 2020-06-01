@@ -81,6 +81,7 @@ npm run dev
 * [Securing API's with JWT](https://medium.com/@joenjenga/securing-your-apis-node-js-using-jwt-46c5d5d99ccd)
 * [Session vs Token Based Authentication - Medium](https://medium.com/@sherryhsu/session-vs-token-based-authentication-11a6c5ac45e4)
 * [Authentication on the Web - YouTube](https://www.youtube.com/watch?v=2PPSXonhIck)
+* [Node.js everywhere with environment variables! - Medium](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
 
 ## License
 
