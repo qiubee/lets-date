@@ -3,6 +3,7 @@
 	{{> userNavigation}}
 	<section>
 		<h1>Your letters</h1>
+		{{#if letter}}
 		{{#each letter}}
 		<article>
 			<header>
@@ -13,6 +14,9 @@
 			<p>{{this.content}}</p>
 		</article>
 		{{/each}}
+		{{else}}
+		<p>You haven't written any letters yet. <a href="/write">Start writing your first letter.</a></p>
+		{{/if}}
 	</section>
 	<section>
 		<h2>Received letters</h2>
