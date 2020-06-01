@@ -9,6 +9,7 @@ async function get (req, res) {
 	}
 	let age, country, place;
 	await db.connect(async function(db) {
+		console.log("[--Fetching profile data--]");
 		const user = await db.collection("users").find({ email : { $eq: req.session.email}});
 		country = getCountryName(user.country);
 		age = getAge(user.age[0], user.age[1]);
@@ -17,7 +18,7 @@ async function get (req, res) {
 		}
 	});
 	res.render("profile", {
-		title: "Edit profile",
+		title: req.session.name,
 		name: req.session.name,
 		age: age,
 		country: country,
@@ -36,13 +37,21 @@ function setup (req, res) {
 	});
 }
 
-function create (req, res) {
+async function create (req, res) {
 	const user = req.body;
+	if (!user.name || !user.country) {
+		return res.render("create-profile", {
+			title: "Set up your profile - Liev",
+			maxYear: new Date().getFullYear() - 18,
+			empty: true
+		});
+	}
 	const name = user.name.replace(/[\d\W\0_]/g, "");
-	db.update("users", { email: { $eq: req.session.email }}, { $set: { 
+	await db.update("users", { email: { $eq: req.session.email }}, { $set: { 
 		name: name,
 		age: user.age,
-		country: user.country
+		country: user.country,
+		profileStatus: "active"
 	}});
 	req.session.name = name;
 	res.redirect("/");
