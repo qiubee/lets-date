@@ -1,10 +1,9 @@
 {{> userHeader}}
 <main class="center">
-	
-	<h1>Profile</h1>
 	<dl>
 		<dt>Stamp picture</dt>
 		<dd><img src={{avatar.src}} alt={{avatar.description}}></dd>
+		<h1>{{name}}</h1>
 		<button><a href="profile/change-stamp">Change stamp</a></button>
 
 		<form action="/profile" method="POST">
@@ -45,5 +44,5 @@
 			<button><a href="profile/change-password">Change password</a></button>
 		</section>
 	</dl>
-	
+	<a href="/logout">Sign out</a>
 </main>
