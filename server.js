@@ -1,16 +1,14 @@
-const dotenv = require("dotenv");
+const config = require("./config");
 const express = require("express");
 const hbs = require("express-handlebars");
 const router = require("./routes/router");
 const errorHandler = require("./routes/errorHandler");
 const session = require("express-session");
 
-dotenv.config();
-
 // server
 const app = express();
-const host = process.env.HOST || "localhost";
-const port = process.env.PORT || 8000;
+const host = config.host || "localhost";
+const port = config.port || 8000;
 
 app.set("view engine", "hbs") // set handlebars as templating engine
 	.engine( "hbs", hbs({ 
@@ -22,7 +20,7 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 	.use(session({ // use sessions
 		saveUninitialized: true,
 		resave: false,
-		secret: process.env.S_SECRET,
+		secret: config.secret,
 		cookie: {
 			httpOnly: true,
 			maxAge: 12 * 60 * 60 * 1000,
