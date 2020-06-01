@@ -130,9 +130,14 @@ header.center nav svg {
 
 main nav ul {
 	font-size: 1.25em;
-	margin: auto;
-	max-width: 18em;
+	margin: 0 auto;
 	justify-content: space-evenly;
+}
+
+main nav li {
+	width: 3.25em;
+	display: flex;
+	justify-content: center;
 }
 
 li svg {
@@ -169,6 +174,12 @@ a[href$="write"] svg {
 	margin: initial;
 	fill: #5245C7;
 	fill: var(--blue);
+}
+
+header a[href$="about"] {
+	position: absolute;
+	left: -999em;
+	top: -999em;
 }
 
 header svg ~ ul a[href$="login"] {
@@ -315,7 +326,6 @@ main form label input[type="radio"] {
 
 img[alt^="Flag"] {
 	max-width: 4em;
-	/* background-color: grey; */
 	padding: 0.5em;
 }
 
@@ -378,8 +388,9 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-p.login-error {
+p.message {
 	padding: 0.5em 1em;
+	padding-left: 2em;
 	font-family: "Stay Writer", Ubuntu, Times, Times New Roman, cursive;
 	font-family: var(--clear-font);
 	font-weight: 600;
@@ -387,10 +398,34 @@ p.login-error {
     max-width: 10em;
     text-align: center;
     font-size: 1.1em;
-    margin-bottom: 2em;
-	background-color: #FD9B9B;
+    margin: 2em 0;
+	background-color: #7066C4;
+    color: white;
+}
+
+p.message:before {
+	content: "i";
+	position: absolute;
+	font-size: 1.5em;
+	margin: 0.2em 0 0 -1em;
+}
+
+
+p.error {
+	background-color: #f57A64;
+	color: black;
+	color: var(--black);
+}
+
+p.warning {
+	background-color: initial;
     color: black;
-    color: var(--black)
+	color: var(--blue);
+	border: solid 0.15em #F2AC61;
+}
+
+p.warning:before {
+	content: "!";
 }
 
 form[action="/profile"] {
@@ -403,9 +438,13 @@ form[action="/profile"] h1 {
 	color: var(--red);
 }
 
-form[action="/profile"] p {
+form[action="/profile"] fieldset p {
 	font-weight: 600;
 	margin-bottom: 1em;
+}
+
+form[action="/profile"] p.warning {
+	margin: -1em 0 2.5em 0;
 }
 
 form[action="/profile"] fieldset:last-of-type label {
@@ -488,6 +527,25 @@ img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
     font-weight: bold;
 }
 
+/* --- User --- */
+
+header.user {
+	margin: 0.5em 0.25em;
+}
+
+header.user nav li:nth-of-type(2n+1) {
+	width: 3.25em;
+}
+
+a[href$="profile"] img[src^="images/stamp"] {
+	width: 2em;
+}
+
+header.user ~ main {
+	max-width: 60em;
+	margin: 0 auto;
+}
+
 @media (min-width: 30em) {
 	nav svg {
 		height: 5em;
@@ -519,5 +577,9 @@ img[src$=".gif"] ~ p a[href$="hellocat.gif"] {
 	
 	h2 {
 		font-size: 2em;
+	}
+
+	header.user {
+		margin: auto;
 	}
 }
