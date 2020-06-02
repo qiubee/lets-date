@@ -4,7 +4,7 @@
   "description": "Discover your new love with Liev. Write your love letter and connect with someone whose words touched your heart",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node -r dotenv/config server.js",
     "dev": "nodemon -r dotenv/config server.js"
   },
   "repository": "qiubee/liev",
