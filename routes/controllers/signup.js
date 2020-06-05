@@ -13,7 +13,6 @@ async function checkMail (mail) {
 			return;
 		}
 	});
-	console.log("result");
 	if (free === true) {
 		return "free";
 	} else {
