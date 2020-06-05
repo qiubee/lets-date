@@ -12,7 +12,6 @@ function generateNonce () {
 
 function cats (req, res) {
 	const item = req.params.item;
-	console.log(item);
 	switch (true) {
 	case /cats?/g.test(item): {
 		const catGIFsrc = randomCatGIF();
