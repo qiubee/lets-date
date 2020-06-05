@@ -24,7 +24,7 @@ app.set("view engine", "hbs") // set handlebars as templating engine
 		cookie: {
 			httpOnly: true,
 			maxAge: 12 * 60 * 60 * 1000,
-			// secure: true,
+			secure: true,
 			sameSite: true
 		}
 	}))
